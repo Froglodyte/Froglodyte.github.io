@@ -168,9 +168,14 @@ li {
     width: auto;
   }
 
+  #socials{
+    margin: auto;
+  }
+
   #socials > a > svg {
     height: 2.1rem;
     width: auto;
+    margin: auto;
   }
 
   #titleDiv {
@@ -189,7 +194,7 @@ li {
     top: 0;
     bottom: auto;
     width: 100%;
-    margin: 0;
+    margin: auto;
     position: relative;
     padding: 0;
     border-radius: 0;
