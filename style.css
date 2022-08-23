@@ -40,6 +40,30 @@ section {
   height: 100vh;
 }
 
+#copyNoti{
+  font-family: "metana";
+  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text);
+  width: 0;
+  height: 0;
+  opacity: 0;
+  padding: 0;
+  display: none;
+  margin: auto;
+  overflow: hidden;
+  text-align: center;
+  transition: 0.2s ease-in-out;
+}
+
+a{
+  transition: 0.2s ease-in-out;
+  overflow: hidden;
+  display: block;
+  opacity: 1;
+}
+
 #titleDiv {
   display: flex;
   margin: auto 0;
@@ -54,13 +78,13 @@ section {
   display: flex;
   justify-content: space-between;
   padding: 0.2rem;
-  padding-top: 1rem;
   bottom: 0;
   position: fixed;
   margin: auto;
   height: fit-content;
   width: 100%;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background-color: white;
 }
 
 h1 {
@@ -90,7 +114,9 @@ h1 {
   justify-content: space-evenly;
   margin: auto 0;
   padding: 0.5rem;
-  min-width: 20.5rem;
+  min-width: 21rem;
+  min-height: 1.5rem;
+  position: relative;
 }
 
 #main {
@@ -141,7 +167,7 @@ li {
   display: none;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1024px) {
   .mobile-thing {
     display: block;
     margin: auto;
@@ -155,6 +181,10 @@ li {
 
   body {
     overflow-x: hidden;
+  }
+  section {
+    min-height: 100vh;
+    height: max-content;
   }
 
   h1 {
@@ -177,6 +207,14 @@ li {
     width: auto;
     margin: auto;
   }
+  #socials > a{
+    display: flex;
+    margin: auto;
+  }
+
+  #copyNoti{
+    font-size: 1rem;
+  }
 
   #titleDiv {
     align-items: center;
@@ -198,14 +236,16 @@ li {
     position: relative;
     padding: 0;
     border-radius: 0;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.189)
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.189);
   }
 
   #main {
     flex-direction: column;
+    justify-content: space-around;
     padding: 0;
+    padding-block: 1vh;
     width: 100%;
-    align-items: top;
+    min-height: 100vh;
     height: fit-content;
   }
 
@@ -225,4 +265,32 @@ li {
   li {
     padding-block: 0.2ch;
   }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  ul{
+    font-size: 1.4rem;
+  }
+  h2{
+    font-size: 2.1rem;
+  }
+
+  h1 {
+    font-size: 3.8rem;
+    text-shadow: -2px 2px 0 #000, 2px 2px 0 #000, 2px -2px 0 #000,
+      -2px -2px 0 #000;
+  }
+
+  #frogicon {
+    height: 4.2rem;
+    width: auto;
+  }
+
+  
+  #socials > a > svg {
+    height: 3rem;
+    width: auto;
+    margin: auto;
+  }
+
 }
