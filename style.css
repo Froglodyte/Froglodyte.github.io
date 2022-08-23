@@ -214,6 +214,7 @@ li {
 
   #copyNoti{
     font-size: 1rem;
+    padding: 0.55rem;
   }
 
   #titleDiv {
@@ -293,4 +294,7 @@ li {
     margin: auto;
   }
 
+  #copyNoti{
+    font-size: 1.75rem;
+  }
 }
