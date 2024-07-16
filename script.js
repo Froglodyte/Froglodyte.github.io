@@ -20,7 +20,7 @@ if(window.innerWidth > 1024) {
 }
 
 function DscrdNameCopy() {
-  navigator.clipboard.writeText("froglodyte.");
+  navigator.clipboard.writeText("Froglodyte#3472");
 
   for (link of links) {
     link.style.opacity = "0";
