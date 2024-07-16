@@ -6,18 +6,20 @@ setInterval(function () {
     (1000 * 3600 * 24 * 365.25);
   ageDiv.innerHTML = age.toFixed(10);
 }, 50);
+
 let dsc = document.getElementById("DiscordIcon");
 let links = document.getElementsByTagName("a");
 let copyNotif = document.getElementById("copyNoti");
+
 let enterTranslateVal = "translate(0, 0.2rem)"
 let exitTranslateVal = "translate(0, -0.2rem)"
+
 if(window.innerWidth > 1024) {
   enterTranslateVal = "translate(0, 1rem)"
   exitTranslateVal = "translate(0, -1rem)"
 }
 
 function DscrdNameCopy() {
-  navigator.clipboard.writeText("Froglodyte#4123");
   navigator.clipboard.writeText("froglodyte.");
 
   for (link of links) {
@@ -30,6 +32,7 @@ function DscrdNameCopy() {
   copyNotif.style.width = "fit-content";
   copyNotif.style.height = "fit-content";
   copyNotif.style.transform = enterTranslateVal
+
   setTimeout(function () {
     copyNotif.style.opacity = "0";
     copyNotif.style.width = "0%";
@@ -41,3 +44,6 @@ function DscrdNameCopy() {
       link.style.height = "fit-content";
       link.style.transform = "translate(0, 0)"
     }
+  
+  }, 1600);
+}
