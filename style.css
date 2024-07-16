@@ -1,159 +1,307 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital@1&family=Roboto+Mono:wght@400;600&display=swap');
-:root{
-    --color-crd: #FDFFF7;
-    --color-bg: #191716;
-    --color-accent-1: #B2ABF2;
-    --color-accent-2: #ED6A5A;
-    --shadow-color: 20deg 11% 2%;
-    --color-subtle-info: rgba(253, 255, 247, 0.50);
+:root {
+  --color-primary: #a2e15d;
+  --color-secondary: #0099c4;
+  --color-text: #42493a;
 }
 
-body{
-    height: 100vh;
+::selection {
+  background: var(--color-primary);
+  color: var(--color-text);
+}
+
+@font-face {
+  font-family: neptern;
+  src: url(fonts/Neptern\ Harbour\ Free.ttf);
+}
+@font-face {
+  font-family: metana;
+  src: url(fonts/NeueMetana-Bold.otf);
+}
+
+svg {
+  fill: var(--color-text);
+  transition: 0.2s ease-in;
+  margin: auto;
+}
+svg:hover {
+  fill: var(--color-secondary);
+  transform: translateY(-3px);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-image: radial-gradient( rgba(0, 0, 0, 0.2) 1px, transparent 0);
+  background-size: 40px 40px;
+  background-position: -19px -19px;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+}
+
+#copyNoti{
+  font-family: "metana";
+  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text);
+  width: 0;
+  height: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  margin: auto;
+  overflow: hidden;
+  text-align: center;
+  transition: 0.4s ease-out;
+}
+
+a{
+  transition: 0.4s ease-out;
+  overflow: hidden;
+  display: block;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+#titleDiv {
+  display: flex;
+  margin: auto 0;
+  padding-inline: 1rem;
+  cursor: default;
+}
+#titleDiv:hover > #frogicon {
+  transform: rotate(45deg);
+}
+
+#menuDiv {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem;
+  bottom: 0;
+  position: fixed;
+  margin: auto;
+  height: fit-content;
+  width: 100%;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background-color: white;
+}
+
+h1 {
+  font-family: neptern;
+  font-size: 3rem;
+  position: relative;
+  display: inline;
+  margin: auto;
+  padding: 0.3rem;
+  text-align: center;
+  color: var(--color-primary);
+  text-shadow: -2px 2px 0 #000, 2px 2px 0 #000, 2px -2px 0 #000,
+    -2px -2px 0 #000;
+}
+
+#frogicon {
+  height: 3.5rem;
+  width: auto;
+  display: inline;
+  margin: auto;
+  padding: 0.35rem;
+  transition: 0.5s ease;
+}
+
+#socials {
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto 0;
+  padding: 0.5rem;
+  min-width: 21rem;
+  min-height: 1.5rem;
+  position: relative;
+}
+
+#main {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  width: calc(100% - 2rem);
+  height: calc(86vh - 2rem);
+  padding: 1rem;
+  margin: 0;
+}
+
+.container {
+  width: fit-content;
+  padding: 1ch;
+  margin: auto 0;
+  height: fit-content;
+}
+
+h2 {
+  font-family: Metana;
+  font-size: 2.2rem;
+  color: var(--color-text);
+}
+
+.impString {
+  display: inline;
+  color: var(--color-primary);
+  transition: 0.25s ease-in-out;
+}
+.impString:hover {
+  cursor: default;
+  color: var(--color-secondary);
+}
+
+ul {
+  font-family: "roboto mono";
+  font-weight: 600;
+  padding-inline: 1rem;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+li {
+  line-height: 2;
+}
+
+.mobile-thing {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .mobile-thing {
+    display: block;
+    margin: auto;
     width: 100%;
     padding: 0;
-    margin: 0;
-    background-color: var(--color-bg);
-    display: grid;
-    place-items: center;
-}
-
-#mobile-blocker{
-    display: none;
-    position: absolute;
-    height: 0;
-    width: 0;
-    margin: none;
-    padding: none;
-}
-
-#room{
-    height: 80vh;
-    aspect-ratio: 16/9;
-    padding: 0;
-    background-color: var(--color-crd);
-    border-radius: 1vh;
-    box-shadow:
-    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
-    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
-    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
-    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
-    overflow: hidden;
-}
-
-#menu{
-    height: 10vh;
-    border-radius: 1vh;
-    display: flex;
-    justify-content: space-between;
-}
-
-.stat{
-    color: rgba(253, 255, 247, 0.75);
-    text-align: center;
-    margin: auto;
-    font-family: "roboto mono", monospace;
-    font-weight: 400;
-    cursor: default;
-}
-
-.statValues{
-    color: var(--color-accent-2);
-    font-weight: 600;
-    font-family: "roboto mono", monospace;
-    font-style: normal;
-    margin: auto;
-    transition: 0.2s all;
-    cursor: text;
-    width: 4ch;
-    border-bottom: 2px solid var(--color-accent-2);
-    padding-bottom: 1px;
-    margin-block: 1px;
-}
-
-.statValues:focus, .statValues:hover{
-    color: var(--color-accent-1);
-    border-bottom: 2px solid var(--color-accent-1);
-}
-
-.statValueCont{
-    color: var(--color-subtle-info);
-    font-family: "DM Mono";
-    font-weight: 500;
-    font-style: italic;
-}
-
-input{
-    all: unset
-}
-
-#ballInfo{
-    width: 100%;
-    color: var(--color-subtle-info);
-    font-family: "DM Mono", monospace;
-    font-size: 0.75rem;
-    font-weight: 500;
-    font-style: italic;
-    display: flex;
-    justify-content: space-between;
-}
-
-.infoCont{
-    font-style: bold;
-    display: inline-block;
-    width: 16ch;
-    max-width: 16ch;
-    min-width: 16ch;
-    display: inline-flex;
-    justify-content: space-around;
-}
-.info{
-    text-align: left;
-    width: 7ch;
-    max-width: 7ch;
-    min-width: 7ch;
-    font-family: "roboto mono", monospace;
-    font-weight: 600;
-}
-
-#ballPos, #ballVel{
-    padding-inline: 1vh;
-    width: 20%;
-    max-width: 20%;
-    min-width: 20%;
-    cursor: default;
-}
-
-#ballVel{
-    text-align: right
-}
-
-#ballVel:hover, #ballPos:hover{
-    color: var(--color-accent-1)
-}
-
-@media only screen and (max-width: 1024px) {
-    #mobile-blocker{
-        display: grid;
-        place-items: center;
-        height: calc(100vh - 2ch);
-        width: calc(100% - 2ch);
-        padding: 1ch;
-        text-align: center;
-        overflow: hidden;
-    }
-    h1{
-        font-size: 1.5rem;
-        font-family: "roboto mono";
-        color: var(--color-accent-2);
-    }
-    h3{
-        font-size: 1rem;
-        font-family: "DM mono";
-        color: var(--color-crd);
-    }
-    #main{
-        display: none;
-        position: absolute;
-    }
   }
+
+  .PC-thing {
+    display: none;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-image: radial-gradient( rgba(0, 0, 0, 0.1) 1px, transparent 0);
+  }
+  section {
+    min-height: 100vh;
+    height: max-content;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+    text-shadow: -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000, 1.5px -1.5px 0 #000,
+      -1.5px -1.5px 0 #000;
+  }
+
+  #frogicon {
+    height: 2.8rem;
+    width: auto;
+  }
+
+  #socials{
+    margin: auto;
+  }
+
+  #socials > a > svg {
+    height: 2.1rem;
+    width: auto;
+    margin: auto;
+  }
+  #socials > a{
+    display: flex;
+    margin: auto;
+  }
+
+  #copyNoti{
+    font-size: 1rem;
+    padding: 0.55rem;
+  }
+
+  #titleDiv {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    margin: auto;
+    padding: 1ch;
+  }
+
+  #titleDiv:hover > #frogicon {
+    transform: rotate(0deg);
+  }
+
+  #menuDiv {
+    top: 0;
+    bottom: auto;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.189);
+    min-height: 10vh;
+  }
+
+  #main {
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0;
+    padding-block: 1vh;
+    width: 100%;
+    min-height: 100vh;
+    height: fit-content;
+  }
+
+  .container {
+    min-width: 80%;
+    padding-inline: 2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    line-height: 0.8;
+  }
+
+  ul {
+    font-size: 0.9rem;
+  }
+  li {
+    padding-block: 0.2ch;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  ul{
+    font-size: 1.4rem;
+  }
+  h2{
+    font-size: 2.1rem;
+  }
+
+  h1 {
+    font-size: 3.8rem;
+    text-shadow: -2px 2px 0 #000, 2px 2px 0 #000, 2px -2px 0 #000,
+      -2px -2px 0 #000;
+  }
+
+  #frogicon {
+    height: 4.2rem;
+    width: auto;
+  }
+
+  
+  #socials > a > svg {
+    height: 3rem;
+    width: auto;
+    margin: auto;
+  }
+
+  #copyNoti{
+    font-size: 1.75rem;
+  }
+}
