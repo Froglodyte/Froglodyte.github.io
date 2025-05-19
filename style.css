@@ -255,12 +255,12 @@ li {
   }
 
   h2 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 0.8;
   }
 
   ul {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   li {
     padding-block: 0.2ch;
@@ -269,10 +269,10 @@ li {
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   ul{
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   h2{
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
 
   h1 {
