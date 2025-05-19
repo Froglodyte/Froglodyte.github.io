@@ -148,12 +148,6 @@ h2 {
 }
 
 .impString {
-  display: inline;
-  color: var(--color-primary);
-  transition: 0.25s ease-in-out;
-}
-.impString:hover {
-  cursor: default;
   color: var(--color-secondary);
 }
 
@@ -161,7 +155,7 @@ ul {
   font-family: "roboto mono";
   font-weight: 600;
   padding-inline: 1rem;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: var(--color-text);
 }
 li {
