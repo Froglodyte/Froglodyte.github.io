@@ -169,7 +169,6 @@ li {
 @media screen and (max-width: 1024px) {
   .mobile-thing {
     display: block;
-    margin: auto;
     width: 100%;
     padding: 0;
   }
@@ -181,9 +180,13 @@ li {
   body {
     overflow-x: hidden;
   }
+
   section {
     min-height: 100vh;
     height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   h1 {
@@ -206,6 +209,7 @@ li {
     width: auto;
     margin: auto;
   }
+
   #socials > a{
     display: flex;
     margin: auto;
@@ -229,14 +233,10 @@ li {
   }
 
   #menuDiv {
-    top: 0;
-    bottom: auto;
-    width: 100%;
-    margin: auto;
     position: relative;
-    padding: 0;
     border-radius: 0;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.189);
+    padding: 2px;
+    box-shadow: none;
   }
 
   #main {
@@ -245,7 +245,7 @@ li {
     padding: 0;
     padding-block: 1vh;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     height: fit-content;
   }
 
@@ -271,6 +271,7 @@ li {
   ul{
     font-size: 1.4rem;
   }
+
   h2{
     font-size: 2rem;
   }
@@ -285,7 +286,6 @@ li {
     height: 4.2rem;
     width: auto;
   }
-
   
   #socials > a > svg {
     height: 3rem;
