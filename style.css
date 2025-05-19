@@ -167,11 +167,6 @@ li {
 }
 
 @media screen and (max-width: 1024px) {
-
-  * {
-    overflow-x: hidden;
-  }
-
   .mobile-thing {
     display: block;
     width: 100%;
@@ -192,6 +187,7 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow-x: hidden;
   }
 
   h1 {
