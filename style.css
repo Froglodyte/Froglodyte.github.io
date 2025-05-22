@@ -179,10 +179,11 @@ li {
 
   body {
     overflow-x: hidden;
+    display: block;
   }
 
   section {
-    min-height: 100vh;
+    min-height: 80vh;
     height: max-content;
     display: flex;
     flex-direction: column;
@@ -218,7 +219,6 @@ li {
 
   #copyNoti{
     font-size: 1rem;
-    padding: 0.55rem;
   }
 
   #titleDiv {
@@ -236,7 +236,6 @@ li {
   #menuDiv {
     position: relative;
     border-radius: 0;
-    padding: 2px;
     box-shadow: none;
     background-color: transparent;
   }
