@@ -180,6 +180,8 @@ li {
   body {
     overflow-x: hidden;
     display: block;
+    min-height: fit-content;
+    height: fit-content;
   }
 
   section {
