@@ -10,18 +10,20 @@
   --grey: #2B2C28;
   --primary: #8DB38B;
   --secondary: #56876D;
-
 }
 
 body {
   margin: 0;
   padding: 0;
   background-color: var(--black);
+}
+
+main {
   width: 100vw;
   height: 100vh;
   background-image: radial-gradient(var(--grey) 1px, transparent 0);
   background-size: 30px 30px;
-  background-position: -12px -14px;
+  background-position: calc(var(--x, 0px) / -40) calc(var(--y, 0px) / -40);
 }
 
 h1 {
@@ -53,7 +55,7 @@ b {
   color: var(--white);
   background: var(--grey);
   border: 1.5px solid var(--primary);
-  border-radius: 4px;
+  transition: all 0.2s ease-out;
 }
 
 .data > * {
