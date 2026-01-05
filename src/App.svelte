@@ -3,7 +3,7 @@
   import About from './lib/about.svelte'
   import Projects from './lib/projects.svelte'
   import Socials from './lib/socials.svelte'
-  import { slide } from 'svelte/transition';
+  import {slideWithFade} from './lib/transitions';
 
   let currentView = 'about';
 
@@ -29,11 +29,10 @@
 <main on:mousemove={handleMousemove} style="--x:{x}px; --y:{y}px;">
   <div id = "main">
     {#key currentView}
-      <div transition:slide>
+      <div transition:slideWithFade>
         <svelte:component this={components[currentView]} />
       </div>
     {/key}
   </div>
   <Nav on:navigate={handleNavigate} />
 </main>
-
