@@ -29,7 +29,7 @@
 <main on:mousemove={handleMousemove} style="--x:{x}px; --y:{y}px;">
   <div id = "main">
     {#key currentView}
-      <div transition:slideWithFade>
+      <div transition:slideWithFade={{}}>
         <svelte:component this={components[currentView]} />
       </div>
     {/key}

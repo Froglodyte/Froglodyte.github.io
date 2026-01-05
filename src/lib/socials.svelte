@@ -40,4 +40,20 @@
     justify-content: center;
     height: calc(100% - 9rem);
   }
+
+  @media (max-width: 768px) {
+    .data {
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    a{
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      transform: translate(-0.4rem, -0.4rem);
+    }
+  }
 </style>

@@ -103,3 +103,33 @@ li > ul > li {
   background: var(--secondary);
   color: var(--white);
 }
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 12px;
+  }
+  .content {
+    padding: 1rem;
+    max-width: 85vw;
+    max-height: none;
+    height: fit-content
+  }
+
+  #main {
+    height: fit-content;
+    min-height: calc(100vh - 8.5rem);
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  ul {
+    padding-left: 1rem;
+    list-style-position: inside;
+  }
+
+  li > ul {
+    padding-left: 1rem;
+  }
+}

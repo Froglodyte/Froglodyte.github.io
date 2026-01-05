@@ -27,6 +27,7 @@
     bottom: 0;
     width: calc(100% - 10vw);
     position: fixed;
+    z-index: 10;
   }
 
   .nav-container {
@@ -80,5 +81,33 @@
   button {
     all: unset;
     cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .navbar{
+      position: static;
+    }
+
+    .nav-container {
+      padding: 0.4rem 1rem;
+      flex-direction: column;
+    }
+
+    .nav-links {
+      margin: 0;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
   }
 </style>
