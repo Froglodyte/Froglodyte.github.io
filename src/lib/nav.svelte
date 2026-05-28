@@ -2,18 +2,27 @@
   import { createEventDispatcher } from 'svelte';
 
   const dispatch = createEventDispatcher();
+  const pages = ['about', 'projects', 'socials'];
 
+  function capitalize(s: string) {
+    if (s === 'about') return '<b>Abo</b>ut';
+    if (s === 'projects') return 'Proj<b>ects</b>';
+    if (s === 'socials') return '<b>Soc</b>ials';
+    return s;
+  }
 </script>
 
 <nav class="navbar">
   <div class="nav-container">
-    <h1><b>Mud</b>it B<b>eng</b>ani</h1>
+    <h1 on:click={() => dispatch('navigate', { page: 'about' })}>
+      <b>Mud</b>it B<b>eng</b>ani
+    </h1>
     <div class="nav-links">
-      <button on:click={() => dispatch('navigate', { page: 'about' })}><h2><b>Abo</b>ut</h2></button>
-      <button on:click={() => dispatch('navigate', { page: 'projects' })}><h2>Proj<b>ects</b></h2></button>
-      <button on:click={() => dispatch('navigate', { page: 'socials' })}><h2><b>Soc</b>ials</h2></button>
-    </div>
-    <div>
+      {#each pages as page}
+        <button on:click={() => dispatch('navigate', { page })}>
+          <h2>{@html capitalize(page)}</h2>
+        </button>
+      {/each}
     </div>
   </div>
 </nav>
@@ -21,8 +30,7 @@
 <style>
   .navbar {
     padding-inline: 5vw;
-    padding-top: 1rem;
-    padding-bottom: 1.4rem;
+    padding-block: 1rem 1.4rem;
     margin: auto;
     bottom: 0;
     width: calc(100% - 10vw);
@@ -33,15 +41,16 @@
   .nav-container {
     margin: 0 auto;
     background-color: var(--grey);
-    border: 1.5px solid var(--primary);
-    box-shadow: 4px 5px 0 var(--primary),
-    -8px 10px 0 #6F8C6E,
-    12px 15px 0 #506450,
-    -16px 20px 0 #323D33;
+    border: var(--border);
+    box-shadow: 
+      4px 5px 0 var(--primary),
+      -8px 10px 0 #6F8C6E,
+      12px 15px 0 #506450,
+      -16px 20px 0 #323D33;
     padding: 0.6rem 1.8rem;
     display: flex;
     align-items: center;
-    transition: 0.2s all ease-out;
+    transition: var(--transition);
     max-width: 1000px;
   }
 
@@ -51,31 +60,28 @@
     gap: 2.4rem;
   }
 
+  h1 {
+    margin: 0;
+    cursor: pointer;
+  }
+
   h2 {
     margin: auto;
     padding: 0;
-    color: var(--primary);
-    font-family: 'xanh mono', sans-serif;
-    font-style: italic;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.2s all ease-out;
+    transition: var(--transition);
   }
 
   h2:hover {
-    text-shadow: 0 4px 0 #6f8c6e60,
-    0 8px 0 #50645060,
-    0 12px 0 #323D3360,
-    0 -4px 0 #6f8c6e60,
-    0 -8px 0 #50645060,
-    0 -12px 0 #323D3360;
-    transform: translate(0, -2px);
-  }
-
-  h1 {
-    margin: 0;
-    color: var(--primary);
-    cursor: pointer;
+    text-shadow: 
+      0 4px 0 #6f8c6e60,
+      0 8px 0 #50645060,
+      0 12px 0 #323D3360,
+      0 -4px 0 #6f8c6e60,
+      0 -8px 0 #50645060,
+      0 -12px 0 #323D3360;
+    transform: translateY(-2px);
   }
 
   button {
@@ -84,8 +90,10 @@
   }
 
   @media (max-width: 768px) {
-    .navbar{
+    .navbar {
       position: static;
+      width: auto;
+      padding-inline: 1rem;
     }
 
     .nav-container {

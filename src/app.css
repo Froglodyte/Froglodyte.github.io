@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DotGothic16&family=Xanh+Mono:ital@0;1&display=swap');
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "dm mono", system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -10,12 +10,15 @@
   --grey: #2B2C28;
   --primary: #8DB38B;
   --secondary: #56876D;
+  --border: 1.5px solid var(--primary);
+  --transition: 0.2s ease-out;
 }
 
 body {
   margin: 0;
   padding: 0;
   background-color: var(--black);
+  color: var(--white);
 }
 
 main {
@@ -23,15 +26,17 @@ main {
   height: 100vh;
   background-image: radial-gradient(var(--grey) 1px, transparent 0);
   background-size: 30px 30px;
-  background-position: calc(var(--x, 0px) / -40) calc(var(--y, 0px) / -40);
+  background-position: calc(var(--x, 0) / -40) calc(var(--y, 0) / -40);
 }
 
-h1 {
+h1, h2 {
   color: var(--primary);
   font-family: 'xanh mono', sans-serif;
-  font-size: 2rem;
   font-style: italic;
 }
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
 
 b {
   font-family: 'dotgothic16', sans-serif;
@@ -44,6 +49,7 @@ b {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 .content {
@@ -52,10 +58,10 @@ b {
   height: 60vh;
   max-height: 32rem;
   max-width: 1000px;
-  color: var(--white);
   background: var(--grey);
-  border: 1.5px solid var(--primary);
-  transition: all 0.2s ease-out;
+  border: var(--border);
+  transition: all var(--transition);
+  overflow-y: auto;
 }
 
 .data > * {
@@ -70,7 +76,6 @@ b {
   margin-right: 0.5rem;
   color: var(--secondary);
   font-family: "dotgothic16", sans-serif;
-  font-weight: 400;
 }
 
 .emph {
@@ -81,6 +86,13 @@ b {
   color: var(--grey);
 }
 
+.unemph {
+  font-family: 'dm mono', sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--secondary);
+}
+
 li {
   list-style-type: square;
   margin-bottom: 0.5rem;
@@ -89,14 +101,7 @@ li {
 li > ul > li {
   list-style-type: circle;
   margin-bottom: 0;
-  font-size: 1rem
-}
-
-.unemph {
-  font-family: 'dm mono', sans-serif;
-  font-style: italic;
-  font-weight: 300;
-  color: var(--secondary);
+  font-size: 1rem;
 }
 
 ::selection {
@@ -105,14 +110,13 @@ li > ul > li {
 }
 
 @media (max-width: 1024px) {
-  :root {
-    font-size: 12px;
-  }
+  :root { font-size: 12px; }
+
   .content {
     padding: 1rem;
     max-width: 85vw;
     max-height: none;
-    height: fit-content
+    height: fit-content;
   }
 
   #main {
@@ -120,16 +124,12 @@ li > ul > li {
     min-height: calc(100vh - 8.5rem);
   }
 
-  h1 {
-    font-size: 1.6rem;
-  }
+  h1 { font-size: 1.6rem; }
 
   ul {
     padding-left: 1rem;
     list-style-position: inside;
   }
 
-  li > ul {
-    padding-left: 1rem;
-  }
+  li > ul { padding-left: 1rem; }
 }

@@ -1,19 +1,17 @@
-<socials>
-  <div class ="content">
-    <h1><b>Soc</b>ial<b>s</b></h1>
-    <div class="data">
-      <a href="https://github.com/Froglodyte" target="_blank" rel="noopener noreferrer">
-        GitHub
-      </a>
-      <a href="https://www.linkedin.com/in/mudit-bengani-0b0610322/" target="_blank" rel="noopener noreferrer">
-        LinkedIn
-      </a>
-      <a href="https://discordapp.com/users/805430566493093910" target="_blank" rel="noopener noreferrer">
-        Discord
-      </a>
-    </div>
+<div class="content">
+  <h1><b>Soc</b>ial<b>s</b></h1>
+  <div class="data">
+    <a href="https://github.com/Froglodyte" target="_blank" rel="noopener noreferrer">
+      GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/mudit-bengani-0b0610322/" target="_blank" rel="noopener noreferrer">
+      LinkedIn
+    </a>
+    <a href="https://discordapp.com/users/805430566493093910" target="_blank" rel="noopener noreferrer">
+      Discord
+    </a>
   </div>
-</socials>
+</div>
 
 <style>
   a {
@@ -47,7 +45,7 @@
       gap: 1.2rem;
     }
 
-    a{
+    a {
       margin: auto;
     }
 

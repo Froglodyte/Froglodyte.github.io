@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Nav from './lib/nav.svelte'
-  import About from './lib/about.svelte'
-  import Projects from './lib/projects.svelte'
-  import Socials from './lib/socials.svelte'
-  import {slideWithFade} from './lib/transitions';
+  import Nav from './lib/nav.svelte';
+  import About from './lib/about.svelte';
+  import Projects from './lib/projects.svelte';
+  import Socials from './lib/socials.svelte';
+  import { slideWithFade } from './lib/transitions';
 
   let currentView = 'about';
 
@@ -17,17 +17,15 @@
     currentView = event.detail.page;
   }
 
-  let x = 0;
-  let y = 0;
-
   function handleMousemove(event: MouseEvent) {
-    x = event.clientX;
-    y = event.clientY;
+    const target = event.currentTarget as HTMLElement;
+    target.style.setProperty('--x', `${event.clientX}px`);
+    target.style.setProperty('--y', `${event.clientY}px`);
   }
 </script>
 
-<main on:mousemove={handleMousemove} style="--x:{x}px; --y:{y}px;">
-  <div id = "main">
+<main on:mousemove={handleMousemove}>
+  <div id="main">
     {#key currentView}
       <div transition:slideWithFade={{}}>
         <svelte:component this={components[currentView]} />
