@@ -4,6 +4,7 @@
   import Projects from './lib/projects.svelte';
   import Socials from './lib/socials.svelte';
   import { slideWithFade } from './lib/transitions';
+  import Dither from './lib/components/dither.svelte';
 
   let currentView = 'about';
 
@@ -16,15 +17,18 @@
   function handleNavigate(event: CustomEvent<{ page: string }>) {
     currentView = event.detail.page;
   }
-
-  function handleMousemove(event: MouseEvent) {
-    const target = event.currentTarget as HTMLElement;
-    target.style.setProperty('--x', `${event.clientX}px`);
-    target.style.setProperty('--y', `${event.clientY}px`);
-  }
 </script>
 
-<main on:mousemove={handleMousemove}>
+<main>
+  <div class="background">
+    <Dither
+      waveColor={[0.18, 0.22, 0.18]}
+      waveFrequency={5}
+      colorNum={4}
+      pixelSize={2}
+    />
+  </div>
+
   <div id="main">
     {#key currentView}
       <div transition:slideWithFade={{}}>
@@ -34,3 +38,15 @@
   </div>
   <Nav on:navigate={handleNavigate} />
 </main>
+
+<style>
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
+</style>

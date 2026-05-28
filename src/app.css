@@ -24,9 +24,6 @@ body {
 main {
   width: 100vw;
   height: 100vh;
-  background-image: radial-gradient(var(--grey) 1px, transparent 0);
-  background-size: 30px 30px;
-  background-position: calc(var(--x, 0) / -40) calc(var(--y, 0) / -40);
 }
 
 h1, h2 {
