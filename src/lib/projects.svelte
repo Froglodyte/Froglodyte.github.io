@@ -51,4 +51,14 @@
   a:hover .emph {
     text-decoration: underline;
   }
+
+  @media (max-width: 768px) {
+    li {
+      margin-bottom: 1.8rem;
+    }
+    
+    p {
+      margin-bottom: 0.4rem;
+    }
+  }
 </style>

@@ -23,9 +23,9 @@
   <div class="background">
     <Dither
       waveColor={[0.18, 0.22, 0.18]}
-      waveFrequency={5}
+      waveFrequency={4}
       colorNum={4}
-      pixelSize={2}
+      pixelSize={1}
     />
   </div>
 

@@ -94,11 +94,16 @@
       position: static;
       width: auto;
       padding-inline: 1rem;
+      padding-block: 1rem;
     }
 
     .nav-container {
-      padding: 0.4rem 1rem;
+      padding: 0.6rem 1rem;
       flex-direction: column;
+      box-shadow: 
+        2px 3px 0 var(--primary),
+        -4px 5px 0 #6F8C6E;
+      width: auto;
     }
 
     .nav-links {
@@ -107,6 +112,7 @@
       flex-wrap: wrap;
       justify-content: space-evenly;
       width: 100%;
+      margin-top: 0.5rem;
     }
 
     h1 {
@@ -116,6 +122,11 @@
 
     h2 {
       font-size: 1.2rem;
+    }
+
+    h2:hover {
+      transform: none;
+      text-shadow: none;
     }
   }
 </style>
