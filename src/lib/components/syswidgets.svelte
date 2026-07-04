@@ -47,7 +47,7 @@
         const drawGraph = () => {
           let color = '#00FF9D';
           if (appState.theme === 'amber') color = '#FFB000';
-          else if (appState.theme === 'pink') color = '#FF33CC';
+          else if (appState.theme === 'pink') color = '#FF5E97';
           else if (appState.theme === 'silver') color = '#D1D1E0';
 
           ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -91,7 +91,7 @@
           // Use proper rgba values depending on theme
           let fillGradient = 'rgba(0, 255, 157, 0.08)';
           if (appState.theme === 'amber') fillGradient = 'rgba(255, 176, 0, 0.08)';
-          else if (appState.theme === 'pink') fillGradient = 'rgba(255, 51, 204, 0.08)';
+          else if (appState.theme === 'pink') fillGradient = 'rgba(255, 94, 151, 0.08)';
           else if (appState.theme === 'silver') fillGradient = 'rgba(209, 209, 224, 0.08)';
           
           ctx.fillStyle = fillGradient;
@@ -280,7 +280,7 @@
 
   .theme-dot.green { background: #00FF9D; }
   .theme-dot.amber { background: #ffb333; }
-  .theme-dot.pink { background: #ff33cc; }
+  .theme-dot.pink { background: #FF5E97; }
   .theme-dot.silver { background: #d1d1e0; }
 
   canvas {

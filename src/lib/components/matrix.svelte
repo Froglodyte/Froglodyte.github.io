@@ -41,7 +41,7 @@
       // Get primary color hex or default
       let color = '#00FF9D';
       if (appState.theme === 'amber') color = '#FFB000';
-      else if (appState.theme === 'pink') color = '#FF33CC';
+      else if (appState.theme === 'pink') color = '#FF5E97';
       else if (appState.theme === 'silver') color = '#D1D1E0';
 
       ctx.fillStyle = 'rgba(0, 0, 0, 0.09)';

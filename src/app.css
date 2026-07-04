@@ -27,15 +27,15 @@
 }
 
 [data-theme="pink"] {
-  --white: #FFE6FB;
-  --black: #0D020C;
-  --grey: #21041D;
-  --primary: #FF33CC;
-  --secondary: #A30074;
-  --border-color: #D6009B;
+  --white: #FFF5F7;
+  --black: #0C0508;
+  --grey: #240E18;
+  --primary: #FF5E97;
+  --secondary: #B82E5C;
+  --border-color: #E03D75;
   --border: 1.5px solid var(--border-color);
-  --glow: 0 0 12px rgba(255, 51, 204, 0.45);
-  --glow-strong: 0 0 20px rgba(255, 51, 204, 0.7);
+  --glow: 0 0 12px rgba(255, 94, 151, 0.45);
+  --glow-strong: 0 0 20px rgba(255, 94, 151, 0.7);
 }
 
 [data-theme="silver"] {
@@ -195,10 +195,10 @@ a:hover {
 }
 
 [data-theme="pink"] .cyberdeck-container {
-  background: rgba(26, 4, 23, 0.82);
+  background: rgba(12, 5, 8, 0.82);
   box-shadow: 
     0 0 25px rgba(0, 0, 0, 0.8),
-    inset 0 0 15px rgba(255, 51, 204, 0.05);
+    inset 0 0 15px rgba(255, 94, 151, 0.05);
 }
 
 [data-theme="silver"] .cyberdeck-container {
@@ -395,7 +395,7 @@ li > ul > li {
 }
 .theme-btn.green { background: #00FF9D; }
 .theme-btn.amber { background: #ffb333; }
-.theme-btn.pink { background: #ff33cc; }
+.theme-btn.pink { background: #FF5E97; }
 .theme-btn.silver { background: #d1d1e0; }
 
 .audio-toggle {

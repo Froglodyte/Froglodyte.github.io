@@ -20,7 +20,7 @@ class GlobalState {
       case 'amber':
         return [0.22, 0.12, 0.01]; // Dark amber
       case 'pink':
-        return [0.20, 0.02, 0.15]; // Dark magenta/pink
+        return [0.15, 0.03, 0.09]; // Dark synthwave coral/pink
       case 'silver':
         return [0.12, 0.12, 0.14]; // Dark slate/grey
       case 'green':
