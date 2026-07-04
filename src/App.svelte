@@ -4,7 +4,6 @@
   import Projects from './lib/projects.svelte';
   import Socials from './lib/socials.svelte';
   import { slideWithFade } from './lib/transitions';
-  import Dither from './lib/components/dither.svelte';
   import SysWidgets from './lib/components/syswidgets.svelte';
   import Terminal from './lib/components/terminal.svelte';
   import Matrix from './lib/components/matrix.svelte';
@@ -22,14 +21,7 @@
   <div class="crt-bezel"></div>
   
   <main>
-    <div class="background">
-      <Dither
-        waveColor={appState.waveColor}
-        waveFrequency={4.5}
-        colorNum={4}
-        pixelSize={2}
-      />
-    </div>
+    <div class="background"></div>
 
     <div id="main">
       <div class="cyberdeck-container">
