@@ -5,39 +5,78 @@
   import Socials from './lib/socials.svelte';
   import { slideWithFade } from './lib/transitions';
   import Dither from './lib/components/dither.svelte';
-
-  let currentView = 'about';
+  import SysWidgets from './lib/components/syswidgets.svelte';
+  import Terminal from './lib/components/terminal.svelte';
+  import Matrix from './lib/components/matrix.svelte';
+  import { appState } from './lib/state.svelte';
 
   const components: Record<string, any> = {
     projects: Projects,
     about: About,
     socials: Socials,
   };
-
-  function handleNavigate(event: CustomEvent<{ page: string }>) {
-    currentView = event.detail.page;
-  }
 </script>
 
-<main>
-  <div class="background">
-    <Dither
-      waveColor={[0.18, 0.22, 0.18]}
-      waveFrequency={4}
-      colorNum={4}
-      pixelSize={1}
-    />
-  </div>
+<div class="crt">
+  <div class="crt-flicker-overlay"></div>
+  <div class="crt-bezel"></div>
+  
+  <main>
+    <div class="background">
+      <Dither
+        waveColor={appState.waveColor}
+        waveFrequency={4.5}
+        colorNum={4}
+        pixelSize={2}
+      />
+    </div>
 
-  <div id="main">
-    {#key currentView}
-      <div transition:slideWithFade={{}}>
-        <svelte:component this={components[currentView]} />
+    <div id="main">
+      <div class="cyberdeck-container">
+        <!-- Deck Header Status -->
+        <header class="deck-header">
+          <div class="deck-status">
+            <span class="status-dot"></span>
+            <span>SYSTEM CONSOLE // USER: GUEST // NODE: MUDIT_BENGANI</span>
+          </div>
+          <div class="deck-time">
+            <span>SECURE LINK: ACTIVE</span>
+          </div>
+        </header>
+
+        <div class="deck-body">
+          <!-- Left Sidebar Widget Area -->
+          <aside class="deck-sidebar">
+            <SysWidgets />
+          </aside>
+
+          <!-- Main Content Area with transition -->
+          <section class="deck-content">
+            {#if appState.matrixActive}
+              <div class="matrix-overlay">
+                <Matrix />
+              </div>
+            {/if}
+            
+            {#key appState.currentView}
+              <div transition:slideWithFade={{}}>
+                <svelte:component this={components[appState.currentView]} />
+              </div>
+            {/key}
+          </section>
+        </div>
+
+        <!-- Interactive Terminal CLI at bottom -->
+        <footer class="deck-terminal">
+          <Terminal />
+        </footer>
+
+        <!-- Bottom Nav bar -->
+        <Nav />
       </div>
-    {/key}
-  </div>
-  <Nav on:navigate={handleNavigate} />
-</main>
+    </div>
+  </main>
+</div>
 
 <style>
   .background {

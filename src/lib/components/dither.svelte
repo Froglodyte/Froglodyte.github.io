@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
+	import { appState } from '../state.svelte';
 
 	type Props = {
 		waveSpeed?: number;
@@ -249,7 +250,11 @@ void main() { vUv = uv; gl_Position = vec4(position, 1.0); }`;
 			waveUniforms.waveSpeed.value = current.waveSpeed;
 			waveUniforms.waveFrequency.value = current.waveFrequency;
 			waveUniforms.waveAmplitude.value = current.waveAmplitude;
-			waveUniforms.waveColor.value.setRGB(current.waveColor[0], current.waveColor[1], current.waveColor[2]);
+			
+			// Dynamic color from appState
+			const cColor = appState.waveColor;
+			waveUniforms.waveColor.value.setRGB(cColor[0], cColor[1], cColor[2]);
+			
 			waveUniforms.enableMouseInteraction.value = current.enableMouseInteraction ? 1 : 0;
 			waveUniforms.mouseRadius.value = current.mouseRadius;
 			if (current.enableMouseInteraction) waveUniforms.mousePos.value.copy(mouse);
