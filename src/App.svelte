@@ -42,7 +42,6 @@
             <SysWidgets />
           </aside>
 
-          <!-- Main Content Area with transition -->
           <section class="deck-content">
             {#if appState.matrixActive}
               <div class="matrix-overlay">

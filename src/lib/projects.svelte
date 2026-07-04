@@ -31,7 +31,7 @@
     {
       name: 'Transformer Firewall',
       sector: 'SECTOR_03',
-      desc: 'A modern web application firewall (WAF) utilizing a fine-tuned BERT model to detect and block SQLi/XSS payloads.',
+      desc: 'A modern web application firewall (WAF) utilizing a fine-tuned BERT model to detect and block threats.',
       link: 'https://github.com/Froglodyte',
       tech: ['Python', 'BERT', 'Svelte', 'WASM'],
       logs: [
@@ -44,7 +44,7 @@
     {
       name: '2D Physics Engine',
       sector: 'SECTOR_04',
-      desc: 'An educational impulse-based 2D rigid body physics simulator built in pure JavaScript.',
+      desc: 'An educational impulse-based 2D physics simulator built in pure JavaScript.',
       link: 'https://github.com/Froglodyte/ball-physics',
       tech: ['JavaScript', 'HTML5 Canvas'],
       logs: [
@@ -52,6 +52,19 @@
         'AABB sweep & prune ready.',
         'Warning: FPS jitter detected.',
         'Impulse resolution online.'
+      ]
+    },
+    {
+      name: 'Snffr',
+      sector: 'SECTOR_05',
+      desc: 'A lightweight distributed intrusion detection system built in Go and Rust.',
+      link: 'https://github.com/Froglodyte/Snffr',
+      tech: ['Go', 'Rust', 'gRPC', 'Docker', 'eBPF'],
+      logs: [
+        'Initializing Snffr...',
+        'Loading eBPF programs...',
+        'WAF monitoring active.',
+        'Threat score: 0.00'
       ]
     }
   ];

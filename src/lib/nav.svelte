@@ -5,9 +5,9 @@
   const pages = ['about', 'projects', 'socials'];
 
   function capitalize(s: string) {
-    if (s === 'about') return '<b>Abo</b>ut';
-    if (s === 'projects') return 'Proj<b>ects</b>';
-    if (s === 'socials') return '<b>Soc</b>ials';
+    if (s === 'about') return 'About';
+    if (s === 'projects') return 'Projects';
+    if (s === 'socials') return 'Socials';
     return s;
   }
 
@@ -30,7 +30,7 @@
       onmouseenter={handleMouseEnter}
       class="nav-logo"
     >
-      <b>Mud</b>it B<b>eng</b>ani
+      <b>Mudit Bengani</b>
     </h1>
     <div class="nav-links">
       {#each pages as page}

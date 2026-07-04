@@ -6,13 +6,18 @@
   let uptime = $state(0.0);
   let cpuCanvasRef = $state<HTMLCanvasElement | null>(null);
 
-  // Skills dataset
   const skills = [
-    { name: 'C/C++', val: 90, bar: '█████████░' },
-    { name: 'Rust', val: 80, bar: '████████░░' },
-    { name: 'Assembly', val: 70, bar: '███████░░░' },
-    { name: 'Svelte/TS', val: 85, bar: '████████░░' }
+    { name: 'Rust', val: 85 },
+    { name: 'Go', val: 80 },
+    { name: 'TypeScript', val: 88 },
+    { name: 'C/C++', val: 71 }
   ];
+
+  function getBar(value: number) {
+    const totalBlocks = 10;
+    const filledBlocks = Math.round((value / 100) * totalBlocks);
+    return '█'.repeat(filledBlocks) + '░'.repeat(totalBlocks - filledBlocks);
+  }
 
   function toggleAudio() {
     playChime();
@@ -124,7 +129,7 @@
       <!-- svelte-ignore a11y_click_events_have_key_events -->
       <!-- svelte-ignore a11y_no_static_element_interactions -->
       <span class="audio-val cursor-pointer" onclick={toggleAudio} onmouseenter={playHover}>
-        [{appState.audioEnabled ? 'MUTED' : 'UNMUTED'}]
+        [{appState.audioEnabled ? 'UNMUTED' : 'MUTED'}]
       </span>
     </div>
   </div>
@@ -153,7 +158,7 @@
           <span>{skill.name}</span>
           <span class="white-text">{skill.val}%</span>
         </div>
-        <div class="skill-bar">{skill.bar}</div>
+        <div class="skill-bar">{getBar(skill.val)}</div>
       </div>
     {/each}
   </div>
