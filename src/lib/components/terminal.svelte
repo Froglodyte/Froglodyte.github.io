@@ -74,7 +74,7 @@
   about           - View the about dossier
   projects        - View the portfolio projects
   socials         - View the secure links
-  color <theme>   - Switch theme (green, amber, pink, silver)
+  color <theme>   - Switch theme (green, amber, pink, silver, cyber-light, solar-light)
   beep            - Play a 8-bit synthetic beep
   matrix          - Toggle matrix code waterfall overlay
   cat frog        - Read system mascot profile (ASCII)
@@ -91,13 +91,13 @@
         break;
 
       case 'color':
-        const themes: Theme[] = ['green', 'amber', 'pink', 'silver'];
+        const themes: Theme[] = ['green', 'amber', 'pink', 'silver', 'cyber-light', 'solar-light'];
         if (arg && themes.includes(arg as Theme)) {
           appState.setTheme(arg as Theme);
           output = `System color theme changed to [${arg.toUpperCase()}].`;
           playSuccess();
         } else {
-          output = `Error: Invalid theme. Choose from: green, amber, pink, silver.`;
+          output = `Error: Invalid theme. Choose from: green, amber, pink, silver, cyber-light, solar-light.`;
           isError = true;
           playError();
         }

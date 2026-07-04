@@ -12,6 +12,10 @@
   --glow-strong: 0 0 20px rgba(0, 255, 157, 0.7);
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --font-mono: "Share Tech Mono", monospace;
+  --card-bg: rgba(0, 0, 0, 0.4);
+  --widget-bg: rgba(0, 0, 0, 0.3);
+  --console-bg: #000000;
+  --tag-bg: rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="amber"] {
@@ -24,6 +28,10 @@
   --border: 1.5px solid var(--border-color);
   --glow: 0 0 12px rgba(255, 176, 0, 0.45);
   --glow-strong: 0 0 20px rgba(255, 176, 0, 0.7);
+  --card-bg: rgba(0, 0, 0, 0.4);
+  --widget-bg: rgba(0, 0, 0, 0.3);
+  --console-bg: #000000;
+  --tag-bg: rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="pink"] {
@@ -36,6 +44,10 @@
   --border: 1.5px solid var(--border-color);
   --glow: 0 0 12px rgba(255, 94, 151, 0.45);
   --glow-strong: 0 0 20px rgba(255, 94, 151, 0.7);
+  --card-bg: rgba(0, 0, 0, 0.4);
+  --widget-bg: rgba(0, 0, 0, 0.3);
+  --console-bg: #000000;
+  --tag-bg: rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="silver"] {
@@ -48,6 +60,42 @@
   --border: 1.5px solid var(--border-color);
   --glow: 0 0 12px rgba(209, 209, 224, 0.35);
   --glow-strong: 0 0 20px rgba(209, 209, 224, 0.6);
+  --card-bg: rgba(0, 0, 0, 0.4);
+  --widget-bg: rgba(0, 0, 0, 0.3);
+  --console-bg: #000000;
+  --tag-bg: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="cyber-light"] {
+  --white: #0A192F;
+  --black: #F4F6F9;
+  --grey: #E5E9F0;
+  --primary: #0070F3;
+  --secondary: #004A9E;
+  --border-color: #A3B8CC;
+  --border: 1.5px solid var(--border-color);
+  --glow: 0 0 12px rgba(0, 112, 243, 0.15);
+  --glow-strong: 0 0 20px rgba(0, 112, 243, 0.25);
+  --card-bg: rgba(255, 255, 255, 0.65);
+  --widget-bg: rgba(255, 255, 255, 0.3);
+  --console-bg: #E5E9F0;
+  --tag-bg: rgba(0, 112, 243, 0.08);
+}
+
+[data-theme="solar-light"] {
+  --white: #002B36;
+  --black: #FDF6E3;
+  --grey: #EEE8D5;
+  --primary: #2AA198;
+  --secondary: #CB4B16;
+  --border-color: #93A1A1;
+  --border: 1.5px solid var(--border-color);
+  --glow: 0 0 12px rgba(42, 161, 152, 0.15);
+  --glow-strong: 0 0 20px rgba(42, 161, 152, 0.25);
+  --card-bg: rgba(255, 255, 255, 0.65);
+  --widget-bg: rgba(255, 255, 255, 0.3);
+  --console-bg: #EEE8D5;
+  --tag-bg: rgba(42, 161, 152, 0.08);
 }
 
 body {
@@ -80,7 +128,7 @@ main {
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.05), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.05));
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.22) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.035), rgba(0, 255, 0, 0.015), rgba(0, 0, 255, 0.035));
   background-size: 100% 3px, 3px 100%;
   z-index: 9999;
   pointer-events: none;
@@ -94,7 +142,7 @@ main {
   left: 0;
   bottom: 0;
   right: 0;
-  background: radial-gradient(circle, transparent 55%, rgba(0, 0, 0, 0.5) 120%);
+  background: radial-gradient(circle, transparent 55%, rgba(0, 0, 0, 0.38) 120%);
   z-index: 10000;
   pointer-events: none;
 }
@@ -117,9 +165,9 @@ main {
 
 /* CRT scanline flickering */
 @keyframes crt-flicker {
-  0% { opacity: 0.985; }
+  0% { opacity: 0.988; }
   50% { opacity: 1; }
-  100% { opacity: 0.985; }
+  100% { opacity: 0.988; }
 }
 
 .crt-flicker-overlay {
@@ -128,10 +176,38 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(18, 16, 16, 0.015);
+  background: rgba(18, 16, 16, 0.011);
   pointer-events: none;
   z-index: 9998;
   animation: crt-flicker 0.15s infinite;
+}
+
+/* Light mode CRT overrides for readability */
+[data-theme="cyber-light"] .crt::after,
+[data-theme="solar-light"] .crt::after {
+  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.04) 50%);
+  background-size: 100% 3px;
+  opacity: 0.7;
+}
+
+[data-theme="cyber-light"] .crt::before,
+[data-theme="solar-light"] .crt::before {
+  background: radial-gradient(circle, transparent 70%, rgba(0, 0, 0, 0.08) 120%);
+}
+
+[data-theme="cyber-light"] .crt-flicker-overlay,
+[data-theme="solar-light"] .crt-flicker-overlay {
+  animation: none;
+  opacity: 0;
+  display: none;
+}
+
+[data-theme="cyber-light"] .crt-bezel,
+[data-theme="solar-light"] .crt-bezel {
+  border-color: #2c2c2c;
+  box-shadow: 
+    inset 0 0 10px rgba(0,0,0,0.3),
+    0 0 15px rgba(0,0,0,0.2);
 }
 
 h1, h2, h3 {
@@ -208,6 +284,20 @@ a:hover {
     inset 0 0 15px rgba(209, 209, 224, 0.05);
 }
 
+[data-theme="cyber-light"] .cyberdeck-container {
+  background: rgba(244, 246, 249, 0.90);
+  box-shadow: 
+    0 0 25px rgba(0, 0, 0, 0.12),
+    inset 0 0 15px rgba(0, 112, 243, 0.05);
+}
+
+[data-theme="solar-light"] .cyberdeck-container {
+  background: rgba(253, 246, 227, 0.90);
+  box-shadow: 
+    0 0 25px rgba(0, 0, 0, 0.12),
+    inset 0 0 15px rgba(42, 161, 152, 0.05);
+}
+
 /* Header Status Bar */
 .deck-header {
   display: flex;
@@ -253,7 +343,7 @@ a:hover {
 .deck-sidebar {
   width: 290px;
   border-right: var(--border);
-  background: rgba(0, 0, 0, 0.25);
+  background: var(--widget-bg);
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -265,7 +355,7 @@ a:hover {
 
 .sidebar-widget {
   border: 1px solid rgba(var(--primary), 0.3);
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--widget-bg);
   padding: 0.6rem;
   border-radius: 2px;
 }
@@ -297,7 +387,7 @@ a:hover {
 }
 .deck-content::-webkit-scrollbar-track,
 .deck-sidebar::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--grey);
 }
 .deck-content::-webkit-scrollbar-thumb,
 .deck-sidebar::-webkit-scrollbar-thumb {
@@ -397,6 +487,8 @@ li > ul > li {
 .theme-btn.amber { background: #ffb333; }
 .theme-btn.pink { background: #FF5E97; }
 .theme-btn.silver { background: #d1d1e0; }
+.theme-btn.cyber-light { background: #0070F3; }
+.theme-btn.solar-light { background: #2AA198; }
 
 .audio-toggle {
   background: transparent;

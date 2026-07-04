@@ -80,7 +80,7 @@
   .profile-card {
     width: 180px;
     border: var(--border);
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--card-bg);
     padding: 0.8rem;
     display: flex;
     flex-direction: column;
@@ -228,7 +228,7 @@
     border: 1px solid var(--border-color);
     padding: 0.1rem 0.4rem;
     border-radius: 2px;
-    background: rgba(var(--primary), 0.05);
+    background: var(--tag-bg);
     transition: var(--transition);
   }
 

@@ -49,6 +49,8 @@
           if (appState.theme === 'amber') color = '#FFB000';
           else if (appState.theme === 'pink') color = '#FF5E97';
           else if (appState.theme === 'silver') color = '#D1D1E0';
+          else if (appState.theme === 'cyber-light') color = '#0070F3';
+          else if (appState.theme === 'solar-light') color = '#2AA198';
 
           ctx.clearRect(0, 0, canvas.width, canvas.height);
           
@@ -93,6 +95,8 @@
           if (appState.theme === 'amber') fillGradient = 'rgba(255, 176, 0, 0.08)';
           else if (appState.theme === 'pink') fillGradient = 'rgba(255, 94, 151, 0.08)';
           else if (appState.theme === 'silver') fillGradient = 'rgba(209, 209, 224, 0.08)';
+          else if (appState.theme === 'cyber-light') fillGradient = 'rgba(0, 112, 243, 0.08)';
+          else if (appState.theme === 'solar-light') fillGradient = 'rgba(42, 161, 152, 0.08)';
           
           ctx.fillStyle = fillGradient;
           ctx.lineTo(canvas.width, canvas.height);
@@ -184,6 +188,14 @@
     <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div class="theme-option" class:active={appState.theme === 'silver'} onclick={() => changeTheme('silver')} onmouseenter={playHover}>
       <span class="theme-dot silver"></span> SILVER
+    </div>
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <div class="theme-option" class:active={appState.theme === 'cyber-light'} onclick={() => changeTheme('cyber-light')} onmouseenter={playHover}>
+      <span class="theme-dot cyber-light"></span> CYBER LT
+    </div>
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <div class="theme-option" class:active={appState.theme === 'solar-light'} onclick={() => changeTheme('solar-light')} onmouseenter={playHover}>
+      <span class="theme-dot solar-light"></span> SOLAR LT
     </div>
   </div>
 </div>
@@ -282,11 +294,13 @@
   .theme-dot.amber { background: #ffb333; }
   .theme-dot.pink { background: #FF5E97; }
   .theme-dot.silver { background: #d1d1e0; }
+  .theme-dot.cyber-light { background: #0070F3; }
+  .theme-dot.solar-light { background: #2AA198; }
 
   canvas {
     display: block;
     width: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(var(--primary), 0.15);
+    background: var(--console-bg);
+    border: 1px solid var(--border-color);
   }
 </style>

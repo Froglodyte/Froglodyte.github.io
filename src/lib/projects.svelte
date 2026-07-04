@@ -191,7 +191,7 @@
   .project-card {
     display: flex;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--card-bg);
     border: var(--border);
     padding: 1rem;
     position: relative;
@@ -203,7 +203,7 @@
 
   .project-card:hover {
     border-color: var(--white);
-    background: rgba(var(--primary), 0.02);
+    background: color-mix(in srgb, var(--primary) 2%, transparent);
     transform: translateY(-2px);
     box-shadow: var(--glow);
   }
@@ -240,10 +240,10 @@
 
   .tech-tag {
     font-size: 0.7rem;
-    border: 1px solid rgba(var(--primary), 0.3);
+    border: 1px solid var(--border-color);
     padding: 0.05rem 0.3rem;
     border-radius: 1px;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--tag-bg);
   }
 
   .card-console {
@@ -251,7 +251,7 @@
     opacity: 0;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: #000;
+    background: var(--console-bg);
     border-top: 1px solid transparent;
     margin-top: 0;
   }
@@ -259,7 +259,7 @@
   .card-console.active {
     height: 90px;
     opacity: 1;
-    border-top: 1px solid rgba(var(--primary), 0.25);
+    border-top: 1px solid var(--border-color);
     margin-top: 0.8rem;
     padding-top: 0.5rem;
   }

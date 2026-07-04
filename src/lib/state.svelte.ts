@@ -1,4 +1,4 @@
-export type Theme = 'green' | 'amber' | 'pink' | 'silver';
+export type Theme = 'green' | 'amber' | 'pink' | 'silver' | 'cyber-light' | 'solar-light';
 
 class GlobalState {
   currentView = $state<string>('about');
@@ -7,7 +7,7 @@ class GlobalState {
   matrixActive = $state<boolean>(false);
 
   constructor() {
-    const themes: Theme[] = ['green', 'amber', 'pink', 'silver'];
+    const themes: Theme[] = ['green', 'amber', 'pink', 'silver', 'cyber-light', 'solar-light'];
     const randomTheme = themes[Math.floor(Math.random() * themes.length)];
     this.theme = randomTheme;
     if (typeof document !== 'undefined') {
@@ -23,6 +23,10 @@ class GlobalState {
         return [0.15, 0.03, 0.09]; // Dark synthwave coral/pink
       case 'silver':
         return [0.12, 0.12, 0.14]; // Dark slate/grey
+      case 'cyber-light':
+        return [0.90, 0.92, 0.95]; // Light cool grey-blue
+      case 'solar-light':
+        return [0.98, 0.95, 0.88]; // Light cream/solarized
       case 'green':
       default:
         return [0.01, 0.15, 0.09]; // Dark mint/emerald green

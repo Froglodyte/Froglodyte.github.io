@@ -51,7 +51,7 @@
       window.open(url, '_blank', 'noopener,noreferrer');
       activeConnectionIndex = null;
       connLogs = [];
-    }, 1300);
+    }, 400);
   }
 </script>
 
@@ -140,7 +140,7 @@
   }
 
   .uplink-row {
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--card-bg);
     border: var(--border);
     padding: 0.8rem 1rem;
     cursor: pointer;
@@ -152,7 +152,7 @@
 
   .uplink-row:hover {
     border-color: var(--white);
-    background: rgba(var(--primary), 0.03);
+    background: color-mix(in srgb, var(--primary) 3%, transparent);
     box-shadow: var(--glow);
     transform: translateX(3px);
   }
@@ -305,7 +305,7 @@
     background: var(--primary);
     box-shadow: var(--glow);
     width: 0%;
-    animation: load 1.2s linear forwards;
+    animation: load 600ms linear forwards;
   }
 
   @keyframes load {

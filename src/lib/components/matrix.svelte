@@ -40,11 +40,20 @@
     const draw = () => {
       // Get primary color hex or default
       let color = '#00FF9D';
+      let bgStyle = 'rgba(0, 0, 0, 0.09)';
+
       if (appState.theme === 'amber') color = '#FFB000';
       else if (appState.theme === 'pink') color = '#FF5E97';
       else if (appState.theme === 'silver') color = '#D1D1E0';
+      else if (appState.theme === 'cyber-light') {
+        color = '#0070F3';
+        bgStyle = 'rgba(244, 246, 249, 0.09)';
+      } else if (appState.theme === 'solar-light') {
+        color = '#2AA198';
+        bgStyle = 'rgba(253, 246, 227, 0.09)';
+      }
 
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.09)';
+      ctx.fillStyle = bgStyle;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.fillStyle = color;
