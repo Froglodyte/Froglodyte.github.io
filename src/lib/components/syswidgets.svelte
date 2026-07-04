@@ -45,7 +45,7 @@
         let dataPoints: number[] = Array(30).fill(20);
         
         const drawGraph = () => {
-          let color = '#4AF626';
+          let color = '#00FF9D';
           if (appState.theme === 'amber') color = '#FFB000';
           else if (appState.theme === 'pink') color = '#FF33CC';
           else if (appState.theme === 'silver') color = '#D1D1E0';
@@ -89,7 +89,7 @@
           // Draw area
           ctx.fillStyle = color.replace(')', ', 0.08)').replace('#', 'rgba('); // simple approximation
           // Use proper rgba values depending on theme
-          let fillGradient = 'rgba(74, 246, 38, 0.08)';
+          let fillGradient = 'rgba(0, 255, 157, 0.08)';
           if (appState.theme === 'amber') fillGradient = 'rgba(255, 176, 0, 0.08)';
           else if (appState.theme === 'pink') fillGradient = 'rgba(255, 51, 204, 0.08)';
           else if (appState.theme === 'silver') fillGradient = 'rgba(209, 209, 224, 0.08)';
@@ -278,7 +278,7 @@
     display: inline-block;
   }
 
-  .theme-dot.green { background: #33ff33; }
+  .theme-dot.green { background: #00FF9D; }
   .theme-dot.amber { background: #ffb333; }
   .theme-dot.pink { background: #ff33cc; }
   .theme-dot.silver { background: #d1d1e0; }

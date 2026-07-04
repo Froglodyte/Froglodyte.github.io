@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Share+Tech+Mono&display=swap');
 
 :root, [data-theme="green"] {
-  --white: #F0FFF0;
-  --black: #080C08;
-  --grey: #121A12;
-  --primary: #4AF626;
-  --secondary: #1C6A10;
-  --border-color: #2e9f1a;
+  --white: #E6FFFA;
+  --black: #040D09;
+  --grey: #0E2218;
+  --primary: #00FF9D;
+  --secondary: #008F58;
+  --border-color: #00CC7E;
   --border: 1.5px solid var(--border-color);
-  --glow: 0 0 12px rgba(74, 246, 38, 0.45);
-  --glow-strong: 0 0 20px rgba(74, 246, 38, 0.7);
+  --glow: 0 0 12px rgba(0, 255, 157, 0.45);
+  --glow-strong: 0 0 20px rgba(0, 255, 157, 0.7);
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --font-mono: "Share Tech Mono", monospace;
 }
@@ -175,12 +175,12 @@ a:hover {
   height: 100%;
   max-width: none;
   max-height: none;
-  background: rgba(10, 14, 10, 0.82);
+  background: rgba(4, 13, 9, 0.82);
   backdrop-filter: blur(10px);
   border: var(--border);
   box-shadow: 
     0 0 25px rgba(0, 0, 0, 0.8),
-    inset 0 0 15px rgba(74, 246, 38, 0.05);
+    inset 0 0 15px rgba(0, 255, 157, 0.05);
   position: relative;
   transition: all var(--transition);
   z-index: 5;
@@ -393,7 +393,7 @@ li > ul > li {
   cursor: pointer;
   border: 1.5px solid var(--white);
 }
-.theme-btn.green { background: #33ff33; }
+.theme-btn.green { background: #00FF9D; }
 .theme-btn.amber { background: #ffb333; }
 .theme-btn.pink { background: #ff33cc; }
 .theme-btn.silver { background: #d1d1e0; }

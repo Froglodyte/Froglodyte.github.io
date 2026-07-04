@@ -6,6 +6,15 @@ class GlobalState {
   audioEnabled = $state<boolean>(true);
   matrixActive = $state<boolean>(false);
 
+  constructor() {
+    const themes: Theme[] = ['green', 'amber', 'pink', 'silver'];
+    const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+    this.theme = randomTheme;
+    if (typeof document !== 'undefined') {
+      document.documentElement.setAttribute('data-theme', randomTheme);
+    }
+  }
+
   get waveColor(): [number, number, number] {
     switch (this.theme) {
       case 'amber':
@@ -16,7 +25,7 @@ class GlobalState {
         return [0.12, 0.12, 0.14]; // Dark slate/grey
       case 'green':
       default:
-        return [0.08, 0.18, 0.08]; // Dark moss green
+        return [0.01, 0.15, 0.09]; // Dark mint/emerald green
     }
   }
 
