@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onDestroy } from 'svelte';
   import { playHover, playClick } from './audio';
 
   const projects = [
@@ -7,7 +8,7 @@
       sector: 'SECTOR_01',
       desc: 'A bare-metal, modular hobby kernel and operating system designed for the Raspberry Pi 3B.',
       link: 'https://github.com/Froglodyte/TycheOS',
-      tech: ['C', 'Assembly', 'Raspi 3B'],
+      tech: ['C', 'Assembly', 'Raspi 3B', 'QEMU'],
       logs: [
         'Initializing MMU...',
         'Loading kernel sectors...',
@@ -33,7 +34,7 @@
       sector: 'SECTOR_03',
       desc: 'A modern web application firewall (WAF) utilizing a fine-tuned BERT model to detect and block threats.',
       link: 'https://github.com/Froglodyte',
-      tech: ['Python', 'BERT', 'Svelte', 'WASM'],
+      tech: ['Python', 'BERT', 'Docker', 'Nginx'],
       logs: [
         'Loading BERT weights (WASM)...',
         'Model initialized in 42ms.',
@@ -70,15 +71,62 @@
   ];
 
   let activeIndex = $state<number | null>(null);
+  let activeConsoles = $state<boolean[]>(projects.map(() => false));
+
+  let leaveTimeout: ReturnType<typeof setTimeout> | null = null;
+  let sameRowDelayTimeout: ReturnType<typeof setTimeout> | null = null;
 
   function handleMouseEnter(index: number) {
+    if (leaveTimeout) {
+      clearTimeout(leaveTimeout);
+      leaveTimeout = null;
+    }
+    if (sameRowDelayTimeout) {
+      clearTimeout(sameRowDelayTimeout);
+      sameRowDelayTimeout = null;
+    }
+
+    const prevIndex = activeIndex;
     activeIndex = index;
     playHover();
+
+    if (prevIndex !== null && prevIndex !== index) {
+      const isDesktop = typeof window !== 'undefined' && window.innerWidth > 768;
+      const inSameRow = isDesktop && Math.floor(prevIndex / 2) === Math.floor(index / 2);
+
+      if (inSameRow) {
+        // Expand the new one immediately
+        activeConsoles[index] = true;
+        // Keep the previous one open during the transition, and close it after the new one is fully expanded (300ms)
+        const oldIndex = prevIndex;
+        sameRowDelayTimeout = setTimeout(() => {
+          activeConsoles[oldIndex] = false;
+        }, 300);
+      } else {
+        // If different row, transition instantly
+        activeConsoles[prevIndex] = false;
+        activeConsoles[index] = true;
+      }
+    } else {
+      activeConsoles[index] = true;
+    }
   }
 
   function handleMouseLeave() {
-    activeIndex = null;
+    const currentIndex = activeIndex;
+    if (currentIndex === null) return;
+
+    // Use a small delay to see if the user moves to another project card (e.g. crossing the gap between columns)
+    leaveTimeout = setTimeout(() => {
+      activeConsoles[currentIndex] = false;
+      activeIndex = null;
+    }, 50);
   }
+
+  onDestroy(() => {
+    if (leaveTimeout) clearTimeout(leaveTimeout);
+    if (sameRowDelayTimeout) clearTimeout(sameRowDelayTimeout);
+  });
 </script>
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -111,7 +159,7 @@
           {/each}
         </div>
 
-        <div class="card-console" class:active={activeIndex === index}>
+        <div class="card-console" class:active={activeConsoles[index]}>
           <div class="console-title">SIMULATED LOG READOUT</div>
           <div class="console-logs">
             {#each project.logs as log}
