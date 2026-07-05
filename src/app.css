@@ -112,6 +112,7 @@ body {
 main {
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -512,6 +513,7 @@ li > ul > li {
 
   .cyberdeck-container {
     height: calc(100vh - 2rem);
+    height: calc(100dvh - 2rem);
     max-height: none;
   }
 
@@ -542,13 +544,30 @@ li > ul > li {
 }
 
 @media (max-width: 600px) {
+  main {
+    padding: 0;
+  }
+  .crt-bezel {
+    display: none; /* Hide monitor bezel on mobile screens to save space and prevent overlap */
+  }
   .deck-sidebar {
     display: none; /* Hide sidebar completely on mobile to maximize content space */
   }
   .cyberdeck-container {
     height: 100vh;
+    height: 100dvh;
     border: none;
     box-shadow: none;
+  }
+  .deck-time {
+    display: none;
+  }
+  .deck-status {
+    font-size: 0.6rem;
+  }
+  .status-dot {
+    width: 6px;
+    height: 6px;
   }
 }
 

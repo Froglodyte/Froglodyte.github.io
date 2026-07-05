@@ -125,7 +125,8 @@
   @media (max-width: 768px) {
     .navbar {
       padding-inline: 1rem;
-      padding-block: 0.5rem;
+      padding-top: 0.5rem;
+      padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
     }
 
     .nav-container {
